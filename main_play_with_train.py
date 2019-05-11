@@ -12,12 +12,12 @@ def main(isTrain=True):
         env=Env(fps=120)
         ai=Agent(env)
         initial_e,final_e=1,0.1
-        temp=5
+        temp=5000
         while True:
             ai.play()
             #Execuate update
             if ai.times>temp and ai.e_greedy>final_e:
-                ai.e_greedy -= (initial_e-final_e)/100000
+                ai.e_greedy -= (initial_e-final_e)/4000000
             if ai.times>temp:
                 ai.q_learning_mini_batch()
                 
